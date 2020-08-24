@@ -1,0 +1,28 @@
+server:
+  port: 10001
+spring:
+  redis:
+    #Matser的ip地址
+    host: localhost
+    #端口号
+    port: 6379
+    #如果有密码
+    #redis.password=
+    #客户端超时时间单位是毫秒 默认是2000
+    timeout: 10000
+    #最大空闲数
+    lettuce:
+      pool:
+        max-idle: 300
+        max-active: 8
+        max-wait: -1ms
+        min-idle: 0
+      shutdown-timeout: 1000ms
+    #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
+    #redis.maxActive=600
+  #redis 哨兵监听的Redis Server的名称
+    sentinel:
+      master: master
+      # comma-separated list of host:port pairs  哨兵的配置列表
+      nodes: 127.0.0.1:26379,127.0.0.1:36379,127.0.0.1:46379
+

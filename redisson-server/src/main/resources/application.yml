@@ -1,0 +1,4 @@
+server:
+  port: 9001
+redisson:
+  address: redis://192.168.10.200:6379
